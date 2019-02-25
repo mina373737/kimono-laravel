@@ -13,9 +13,15 @@
 
 Route::group(['prefix'=>'admin'],function(){
   Route::get('products/index','Admin\ProductsController@index');
+
+
   Route::get('products/create','Admin\ProductsController@add');
+  Route::post('products/create','Admin\ProductsController@create');
+
+
   Route::get('products/edit','Admin\ProductsController@edit');
   Route::get('products/update','Admin\ProductsController@update');
+
   Route::get('products/destroy','Admin\ProductsController@destroy');
 
   Route::get('lessons/index','Admin\LessonsController@index');
