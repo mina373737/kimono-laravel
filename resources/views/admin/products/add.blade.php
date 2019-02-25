@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>販売商品の新規追加</h2>
+                <h2>販売商品の新規追加します</h2>
             </div>
         </div>
     </div>
