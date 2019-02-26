@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>販売商品の新規追加</h2>
-                  <form action="{{ action('Admin\ProductsController@create') }}" method="post" enctype="multipart/form-data"></form>
+                  <form action="{{ action('Admin\ProductsController@create') }}" method="post" enctype="multipart/form-data">
 
                 @if(count($errors)>0)
                   <ul>
@@ -20,7 +20,7 @@
                            @endforeach
                        </ul>
                    @endif
-                   <form action="#" method="post">
+
                      <p>商品名:<br>
                      <input type="text" name="name" value="{{ old('productName') }}"></p>
                      <p>税込価格:<br>
@@ -33,8 +33,8 @@
                        </div>
                        {{ csrf_field() }}
                        <input type="submit" class="btn btn-primary" value="更新">
-                   </form>
 
+                    </form>
             </div>
         </div>
     </div>

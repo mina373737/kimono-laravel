@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Products;
+
+
 
 class ProductsController extends Controller
 {
@@ -20,6 +23,8 @@ class ProductsController extends Controller
 
     public function create(Request $request)
     {
+       \Debugbar::info($request);
+       \Debugbar::info($request->file('image'));
 
       // Varidationを行う
       $this->validate($request, Products::$rules);
@@ -27,12 +32,14 @@ class ProductsController extends Controller
       $products = new Products;
       $form = $request->all();
 
+       \Debugbar::info($form);
+
       // フォームから画像が送信されてきたら、保存して、$products->image_path に画像のパスを保存する
       if (isset($form['image'])) {
         $path = $request->file('image')->store('public/image');
         $products->image_path = basename($path);
       } else {
-          $products->image_path = null;
+        $products->image_path = null;
       }
 
       // フォームから送信されてきた_tokenを削除する
@@ -45,20 +52,20 @@ class ProductsController extends Controller
       $products->save();
 
       return redirect('admin/products/create');
-    }
+  }
 
+  public function edit()
+  {
+    return view('admin.lessons.edit');
+  }
 
+  public function update()
+  {
+    return redirect('admin/update/index');
+  }
 
-    public function edit()
-    {
-      return view('admin.product.edit');
-    }
-    public function update()
-    {
-      return redirect('admin/update/index');
-    }
-    public function destroy()
-    {
-      return redirect('admin/products/index');
-    }
+  public function destroy()
+  {
+    return redirect('admin.lessons.index');
+  }
 }

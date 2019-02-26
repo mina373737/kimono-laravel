@@ -16,9 +16,9 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('productsName');
-            $table->integer('productsPrice');
-            $table->string('image_path');  // 画像のパスを保存するカラム
+            $table->string('name');
+            $table->integer('price');
+            $table->string('image_path')->nullable();  // 画像のパスを保存するカラム
         });
     }
 
