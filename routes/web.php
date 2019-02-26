@@ -15,9 +15,10 @@ Route::group(['prefix'=>'admin'],function(){
   Route::get('products/index','Admin\ProductsController@index');
 
 
-  Route::get('products/create','Admin\ProductsController@add');
+  Route::get('products/create','Admin\ProductsController@add')->middleware('auth');
   Route::post('products/create','Admin\ProductsController@create');
 
+  Route::get('products', 'Admin\ProductsController@index')->middleware('auth');
 
   Route::get('products/edit','Admin\ProductsController@edit');
   Route::get('products/update','Admin\ProductsController@update');
@@ -42,3 +43,7 @@ Route::group(['prefix'=>'admin'],function(){
   Route::get('accessories/update','Admin\AccessoriesController@update');
   Route::get('accessories/destroy','Admin\AccessoriesController@destroy');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
