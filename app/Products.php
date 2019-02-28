@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
@@ -12,5 +13,9 @@ class Products extends Model
         'name' => 'required',
         'price' => 'required',
     );
+    public function histories()
+    {
+      return $this->hasMany('App\History');
+    }
     //
 }

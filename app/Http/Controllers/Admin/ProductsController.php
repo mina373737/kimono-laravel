@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Products;
+use App\History;
+use Carbon\Carbon;
+
 
 
 
@@ -17,10 +20,10 @@ class ProductsController extends Controller
       $cond_title = $request->cond_title;
       if($cond_title !=''){
         //検索されたら検索結果を取得する
-        $posts = News::where('title',$cond_title)->get();
+        $posts = Products::where('title',$cond_title)->get();
       }else{
         //それ以外はすべての商品を取得する
-        $posts = News::all();
+        $posts = Products::all();
       }
       return view('admin.products.index',['posts' => $posts, 'cond_title' => $cond_title]);
     }
@@ -64,18 +67,52 @@ class ProductsController extends Controller
       return redirect('admin/products/create');
   }
 
-  public function edit()
+  public function edit(Request $request)
   {
-    return view('admin.lessons.edit');
+    //Products Modelからデータを取得する
+    $products = Products::find($request->id);
+    if(empty($products)){
+      abort(404);
+    }
+    return view('admin.products.edit',['products_form' => $products]);
   }
 
-  public function update()
+  public function update(Request $request)
   {
-    return redirect('admin/update/index');
+    //Validationをかける
+    $this->validate($request,Products::$rules);
+    //Products Modelからデータを取得する
+    $products = Products::find($request->id);
+    //送信されてきたフォームデータを格納する
+    $products_form = $request->all();
+    if ($request->remove == 'true') {
+            $products_form['image_path'] = null;
+        } elseif ($request->file('image')) {
+            $path = $request->file('image')->store('public/image');
+            $products_form['image_path'] = basename($path);
+        } else {
+            $products_form['image_path'] = $products->image_path;
+        }
+    unset($products_form['_token']);
+    unset($products_form['image']);
+    unset($products_form['remove']);
+
+    //該当するデータを上書きして保存する
+    $products->fill($products_form)->save();
+
+    $history = new History;
+    $history->products_id = $products->id;
+    $history->edited_at = Carbon::now();
+    $history->save();
+
+    return redirect('/admin/products/');
   }
 
-  public function destroy()
+  public function delete(Request $request)
   {
-    return redirect('admin.lessons.index');
+    $products = Products::find($request->id);
+    $products->delete();
+    return redirect('admin/products/');
   }
+  
 }

@@ -12,18 +12,20 @@
 */
 
 Route::group(['prefix'=>'admin'],function(){
-  Route::get('products/index','Admin\ProductsController@index');
+  Route::get('products/index','Admin\ProductsController@index')->middleware('auth');
 
 
   Route::get('products/create','Admin\ProductsController@add')->middleware('auth');
-  Route::post('products/create','Admin\ProductsController@create');
+  Route::post('products/create','Admin\ProductsController@create')->middleware('auth');
 
   Route::get('products', 'Admin\ProductsController@index')->middleware('auth');
 
-  Route::get('products/edit','Admin\ProductsController@edit');
-  Route::get('products/update','Admin\ProductsController@update');
+  Route::get('products/edit', 'Admin\ProductsController@edit')->middleware('auth');
+  Route::post('products/edit', 'Admin\ProductsController@update')->middleware('auth');
 
-  Route::get('products/destroy','Admin\ProductsController@destroy');
+
+
+  Route::get('products/delete','Admin\ProductsController@delete');
 
   Route::get('lessons/index','Admin\LessonsController@index');
   Route::get('lessons/create','Admin\LessonsController@add');
