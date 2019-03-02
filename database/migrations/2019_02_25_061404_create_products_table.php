@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('price');
             $table->string('image_path')->nullable();  // 画像のパスを保存するカラム
+            $table->string('description');
         });
     }
 

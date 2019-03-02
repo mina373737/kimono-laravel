@@ -12,6 +12,7 @@ class Products extends Model
     public static $rules = array(
         'name' => 'required',
         'price' => 'required',
+        'description' => 'required',
     );
     public function histories()
     {

@@ -13,7 +13,6 @@
             <div class="col-md-8">
                 <form action="{{ action('Admin\ProductsController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">商品名</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
                         </div>
@@ -34,7 +33,8 @@
                                 <th width="10%">ID</th>
                                 <th width="20%">商品名</th>
                                 <th width="20%">税込価格</th>
-                                <th width="50%">商品写真</th>
+                                <th width="20%">商品説明</th>
+                                <th width="30%">商品写真</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +43,17 @@
                                     <th>{{ $products->id }}</th>
                                     <td>{{ str_limit($products->name, 30) }}</td>
                                     <td>{{ str_limit($products->price, 10) }}</td>
+                                    <td>{{ str_limit($products->description, 250) }}</td>
+
+                                    <!-- <div class="thumbnail"> -->
+                                      <td>
+
+                                          <img class="thumbnail" src="{{ asset('storage/image/' . $products->image_path) }}" alt="thumbnail">
+                                      
+                                      </td>
+
+                                        <!-- <td>{{ ($products->image) }}</td> -->
+                                    <!-- </div> -->
                                     <td>
                                         <div>
                                             <a href="{{ action('Admin\ProductsController@edit', ['id' => $products->id]) }}">編集</a>

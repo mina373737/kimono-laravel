@@ -24,8 +24,12 @@
                         <label class="col-md-2" for="body">税込価格</label>
                         <div class="col-md-10">
                           <input type="text" class="form-control" name="price" value="{{ $products_form->price }}">
-
-
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-md-2" for="description">商品説明</label>
+                        <div class="col-md-10">
+                          <input type="text" class="form-control" name="description" value="{{ $products_form->description }}">
                         </div>
                     </div>
                     <div class="form-group row">

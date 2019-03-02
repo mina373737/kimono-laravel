@@ -44,7 +44,11 @@ Route::group(['prefix'=>'admin'],function(){
   Route::get('accessories/edit','Admin\AccessoriesController@edit');
   Route::get('accessories/update','Admin\AccessoriesController@update');
   Route::get('accessories/destroy','Admin\AccessoriesController@destroy');
+
+
 });
+
+Route::get('/', 'ProductsController@index');
 
 Auth::routes();
 
