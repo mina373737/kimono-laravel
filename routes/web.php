@@ -49,6 +49,7 @@ Route::group(['prefix'=>'admin'],function(){
 });
 
 Route::get('/', 'ProductsController@index');
+Route::get('/top', 'TopController@top');
 
 Auth::routes();
 

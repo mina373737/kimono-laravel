@@ -1,0 +1,173 @@
+#wrap {
+  width:960px;
+  margin:0px auto;
+}
+
+header {
+  border:dashed 1px #999;
+}
+header p{
+  padding: 60px 10px;
+  font-size: 40px;
+  font-weight: bold;
+  color: #000;
+  position: absolute;
+}
+.logo-image{
+  height: 400px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('../image/header.jpg');
+}
+.header-list ul li{
+  float: right;
+  background-color: #333;
+  width: 140px;
+  margin: 1px 5px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 5px;
+}
+.header-list li a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* 左側サイドナビ(float:left指定) */
+#sidenavi {
+  float:left;
+  width:240px;
+  height:698px;
+  border:dashed 1px #999;
+  margin:10px 10px 10px 0px;
+}
+
+/* 右側コンテンツ(float:left指定) */
+#contents {
+  float:left;
+  width:706px;
+  height:698px;
+  border:dashed 1px #999;
+  margin:10px 0px 10px 0px;
+}
+/* 右側コンテンツの最後で(float:left解除) */
+#contents.after {
+  clear:both;
+}
+.container{
+  padding: 10px;
+  margin: 10px;
+  border: double 5px #4ec4d3;
+}
+.container h1{
+  font-size: 25px;
+}
+.card-contents h1{
+  background: #dfefff;
+  box-shadow: 0px 0px 0px 5px #dfefff;
+  border: dashed 2px white;
+  padding: 0.2em 0.5em;
+}
+.card-contents h2{
+  padding: 0.25em 0.5em;/*上下 左右の余白*/
+  color: #494949;/*文字色*/
+  background: transparent;/*背景透明に*/
+  border-left: solid 5px #7db4e6;/*左線*/
+}
+/* 左側のコラムで再度(float:left指定) */
+#col-left {
+  float:left;
+  width:473px;
+  height:1500px;
+  border:dashed 1px #999;
+  margin:10px 10px 10px 0px;
+}
+
+/* 右側のコラム(float:left指定) */
+#col-right {
+  float:left;
+  width:473px;
+  height:1500px;
+  border:dashed 1px #999;
+  margin:10px 0px 10px 0px;
+}
+
+/* フッター(float:left解除) */
+footer {
+  clear:both;
+  border:dashed 1px #999;
+}
+
+/* css3に非対応ブラウザ用のスタイル定義 */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+#guide_area {
+	width: 240px;
+	margin-bottom: 10px;
+	border: none;
+}
+
+#guide_area ul{
+  padding: 0;
+}
+#guide_area ul li {
+  color: #2d8fdd;
+  border-left: solid 6px #2d8fdd;/*左側の線*/
+  background: #f1f8ff;/*背景色*/
+  margin-bottom: 3px;/*下のバーとの余白*/
+  line-height: 1.5;
+  padding: 0.5em;
+  list-style-type: none!important;/*ポチ消す*/
+  display: block;
+}
+
+#login-area{
+  padding: 0 9px;
+  height: 160px;
+  line-height: 25px;
+  vertical-align: middle;
+  font-size: 17px;
+  background: #62c1ce;
+  color: #ffffff;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#login-area p{
+  margin: 0;
+  padding: 0;
+}
+
+#button_area ul{
+  padding: 0;
+}
+#button_area ul li {
+  color: #2d8fdd;
+  border-left: solid 6px #2d8fdd;/*左側の線*/
+  background: #f1f8ff;/*背景色*/
+  margin-bottom: 3px;/*下のバーとの余白*/
+  line-height: 1.5;
+  padding: 0.5em;
+  list-style-type: none!important;/*ポチ消す*/
+  display: block;
+}
+.footer ul li{
+  color: #2d8fdd;
+  border-left: solid 6px #2d8fdd;/*左側の線*/
+  background: #f1f8ff;/*背景色*/
+  margin-bottom: 3px;/*下のバーとの余白*/
+  line-height: 1.5;
+  padding: 5px;
+  list-style-type: none!important;/*ポチ消す*/
+  display: inline-block;
+  padding-right: 10px;
+}
+
+.copyright{
+  text-align: center;
+}
