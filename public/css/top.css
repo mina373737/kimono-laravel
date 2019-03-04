@@ -19,8 +19,21 @@ header p{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('../image/header.jpg');
+  background-image: url('../storage/image/header.jpg');
 }
+/* .logo-image p{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+  }
+} */
+
+
+.logo-image-mask{
+  height: 100%;
+  background-color: rgba(255,255,255,0.4);
+}
+
 .header-list ul li{
   float: right;
   background-color: #333;
