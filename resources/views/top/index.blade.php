@@ -35,7 +35,7 @@
       <div id="guide_area">
         <ul>
           <li><a href="#">Topページ</a></li>
-          <li><a href="<?php echo route('front.show');?>">販売商品一覧</a></li>
+          <li><a href="<?php echo url("products");?>">販売商品一覧</a></li>
           <li><a href="#">お買い物の流れ</a></li>
           <li><a href="#">お支払い・送料について</a></li>
           <li><a href="#">特定商取引法の表示</a></li>

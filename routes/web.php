@@ -48,8 +48,10 @@ Route::group(['prefix'=>'admin'],function(){
 
 });
 
-Route::get('/', 'ProductsController@index');
-Route::get('/top', 'TopController@top');
+Route::resource('products', 'ProductsController');
+Route::get('/', 'TopController@index');
+
+
 
 Auth::routes();
 
